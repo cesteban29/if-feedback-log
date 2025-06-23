@@ -1,0 +1,29 @@
+{
+  "name": "limitless-repro",
+  "version": "1.0.0",
+  "description": "Test Braintrust's conditional logging.",
+  "main": "dist/test.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node src/test.ts"
+  },
+  "keywords": [
+    "braintrust",
+    "logging",
+    "feedback",
+    "openai"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.1",
+  "devDependencies": {
+    "@types/node": "^24.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "braintrust": "^0.0.206",
+    "dotenv": "^16.5.0",
+    "openai": "^5.6.0"
+  }
+}
