@@ -41,7 +41,7 @@ const userFeedback = await waitForUserThumbsUp();
 // 3. Only initialize Braintrust if user gives feedback
 if (userFeedback) {
   const logger = initLogger({
-    projectName: "limitless-repro",
+    projectName: "if-feedback-then-log",
     apiKey: process.env.BRAINTRUST_API_KEY,
   });
 
