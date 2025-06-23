@@ -139,12 +139,11 @@ export async function runConditionalLoggingTest(): Promise<TestResult> {
       console.log('✅ User provided feedback - logging to Braintrust...');
       
       const logger = initLogger({
-        projectName: "limitless-repro",
+        projectName: "if-feedback-then-log",
         apiKey: process.env.BRAINTRUST_API_KEY,
-        asyncFlush: false, // We will manually flush the logs.
       });
 
-      console.log('✅ Logger initialized with asyncFlush: false');
+      console.log('✅ Logger initialized');
 
       // Use logger.traced to create a span. We specify the type as 'llm'
       // to ensure Braintrust recognizes it correctly and populates LLM-specific fields.
@@ -187,10 +186,7 @@ export async function runConditionalLoggingTest(): Promise<TestResult> {
 
         console.log(`👤 User feedback logged: ${userFeedback.thumbsUp ? '👍' : '👎'}${userFeedback.comment ? ` - "${userFeedback.comment}"` : ''}`);
         
-        // Manually flush the logs to send them to the Braintrust server.
-        console.log('🚀 User provided feedback - flushing data to Braintrust...');
-        await parent.flush();
-        console.log('✅ Data successfully flushed to Braintrust!');
+        console.log('✅ Data logged to Braintrust (will auto-flush when function ends)');
       }, { name: "Manual LLM Call", type: "llm" });
 
       return {

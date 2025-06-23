@@ -43,12 +43,10 @@ if (userFeedback) {
   const logger = initLogger({
     projectName: "limitless-repro",
     apiKey: process.env.BRAINTRUST_API_KEY,
-    asyncFlush: false,
   });
 
   await logger.traced(async (parent) => {
     parent.log({ input: messages, output: response, ... });
-    await parent.flush();
   });
 }
 ```
